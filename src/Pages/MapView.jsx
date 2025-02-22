@@ -16,7 +16,6 @@ const defaultCenter = {
 const MapView = () => {
   const [userPosition, setUserPosition] = useState(null);
 
-  // Get the user's current position
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -28,15 +27,17 @@ const MapView = () => {
         },
         (error) => {
           console.error('Error fetching location:', error);
+          setUserPosition(defaultCenter); // Use default location if error occurs
         }
       );
     } else {
       console.error('Geolocation is not supported by this browser.');
+      setUserPosition(defaultCenter); // Use default location if geolocation is unsupported
     }
   }, []);
 
   return (
-    <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+    <LoadScript googleMapsApiKey="AIzaSyBrMH7uXcgncIGJ9UCMOwwo6SGs-75udLA">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={userPosition || defaultCenter}

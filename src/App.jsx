@@ -4,9 +4,12 @@ import Camera from './Components/Camera'
 import Home from './Pages/Home'
 import NotFound from './Pages/NotFound'
 import MapView from './Pages/MapView';
+import {APIProvider} from '@vis.gl/react-google-maps';
 import LandingPage from './Pages/LandingPage';
 
-function App() {
+
+const App =()=> {
+<APIProvider apiKey={'AIzaSyBrMH7uXcgncIGJ9UCMOwwo6SGs-75udLA'} onLoad={() => console.log('Maps API has loaded.')}></APIProvider>
   return (
     <Router>
     <Routes>
